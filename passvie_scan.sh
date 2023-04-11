@@ -28,6 +28,6 @@ puredns resolve "$outpath/subs.txt" -r "$wordlists/resolvers-trusted.txt" -w "$o
 #dnsx -l "$scan_path/resolved.txt" -json -o "$outpath/dns.json" | jq -r '.a?[]?' | anew "$scan_path/ips.txt" | wc -l 
 
 ## Port Scanning & HTTP Server Discovery
-naabu -l "$outpath/resolved.txt" -pf ~/port_list.txt | anew port.txt
+naabu -l "$outpath/resolved.txt" -pf port_list.txt | anew port.txt
 
 httpx -l port.txt -timeout 10 -cl -wc -fr -title -sc | anew httpxscan.txt
