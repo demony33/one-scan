@@ -18,7 +18,7 @@ echo "Starting scan against domains.txt:"
 ## DNS Enumeration -Find Subdomains
 amass enum -passive -norecursive -noalts -df "$scope/domains.txt" | anew "$outpath/subs.txt"
 
-subfinder -dL "$scope/domains.txt" -all | anew "$outpath/subs.txt "
+subfinder -dL "$scope/domains.txt" -all | anew "$outpath/subs.txt"
 
 shuffledns -l "$scope/domains.txt" -w "$wordlists/2m-subdomains.txt" -r "$wordlists/resolvers-trusted.txt" | anew "$outpath/subs.txt"
 
