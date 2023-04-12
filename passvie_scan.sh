@@ -25,7 +25,7 @@ shuffledns -l "$scope/domains.txt" -w "$wordlists/2m-subdomains.txt" -r "$wordli
 ## DNS Resolution - Resolver Discovered Subdomains
 puredns resolve "$outpath/subs.txt" -r "$wordlists/resolvers-trusted.txt" -w "$outpath/resolved.txt" | wc -l
 
-#dnsx -l "$scan_path/resolved.txt" -json -o "$outpath/dns.json" | jq -r '.a?[]?' | anew "$outpath/ips.txt" | wc -l 
+dnsx -l "$scan_path/resolved.txt" -json -o "$outpath/dns.json" | jq -r '.a?[]?' | anew "$outpath/ips.txt" | wc -l 
 
 ## Port Scanning & HTTP Server Discovery
 naabu -l "$outpath/resolved.txt" -pf port_list.txt | anew "$output/port.txt"
