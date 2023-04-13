@@ -13,7 +13,7 @@ fi
 
 ### PERFROM SCAN ###
 
-echo "Starting scan against domains.txt:"
+print "\x1b[32m ---> [ Starting scan against roots:]\\x1b[0m\n" ;
 
 ## DNS Enumeration -Find Subdomains
 amass enum -passive -norecursive -noalts -df "$scope/domains.txt" | anew "$outpath/subs.txt"
