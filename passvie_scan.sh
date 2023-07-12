@@ -31,3 +31,5 @@ dnsx -l "$outpath/resolved.txt" -json -o "$outpath/dns.json" | jq -r '.a?[]?' | 
 naabu -l "$outpath/resolved.txt" -pf port_list.txt | anew "$outpath/port.txt"
 
 httpx -l "$outpath/port.txt" -timeout 10 -cl -wc -fr -title -sc | anew "$outpath/httpxscan.txt"
+
+nuclei -l "$outpath/port.txt" -etags dns,ssl
