@@ -33,5 +33,6 @@ naabu -l "$outpath/resolved.txt" -pf port_list.txt | anew "$outpath/port.txt"
 httpx -l "$outpath/port.txt" -timeout 10 -cl -wc -fr -title -sc | anew "$outpath/httpxscan.txt"
 
 nuclei -l "$outpath/port.txt" -etags dns,ssl -es info -o "$outpath/report.txt"
+
 #notify
 notify -data "$outpath/report.txt" -bulk
